@@ -38,6 +38,7 @@ class TotalVoiceChannel
      * @param mixed $notifiable
      * @param \Illuminate\Notifications\Notification $notification
      *
+     * @return mixed
      * @throws \NotificationChannels\TotalVoice\Exceptions\CouldNotSendNotification
      */
     public function send($notifiable, Notification $notification)

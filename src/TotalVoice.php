@@ -86,6 +86,7 @@ class TotalVoice
             'gravar_audio' => $message->record_audio,
             'detecta_caixa' => $message->detect_callbox,
         ];
+
         return $this->totalVoiceService->tts->enviar($to,
                                                     trim($message->content),
                                                     $optionalParams);
@@ -101,12 +102,10 @@ class TotalVoice
      */
     public function sendAudioMessage(TotalVoiceAudioMessage $message, $to)
     {
-        //Falta o argumento "detectar caixa" postal no metodo da lib
         return $this->totalVoiceService->audio->enviar($to,
                                                         trim($message->content),
                                                         $message->provide_feedback,
                                                         $message->fake_number,
                                                         $message->record_audio);
     }
-    
 }

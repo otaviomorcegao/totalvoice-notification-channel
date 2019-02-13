@@ -61,7 +61,7 @@ abstract class TotalVoiceMessage
     public function provideFeedback($provide_feedback)
     {
         $this->provide_feedback = $provide_feedback;
-        
+
         return $this;
     }
 
@@ -74,5 +74,4 @@ abstract class TotalVoiceMessage
     {
         return $this->provide_feedback;
     }
-    
 }

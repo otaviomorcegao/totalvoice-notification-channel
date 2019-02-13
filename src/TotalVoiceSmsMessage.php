@@ -23,7 +23,7 @@ class TotalVoiceSmsMessage extends TotalVoiceMessage
     public function multipart($multi_part)
     {
         $this->multi_part = $multi_part;
-        
+
         return $this;
     }
 
@@ -39,5 +39,4 @@ class TotalVoiceSmsMessage extends TotalVoiceMessage
 
         return $this;
     }
-    
 }

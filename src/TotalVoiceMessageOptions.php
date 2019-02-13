@@ -23,8 +23,9 @@ trait TotalVoiceMessageOptions
      * Define o número de telefone que aparecerá no identificador
      * de quem receber a chamada, formato DDD + Número exemplo: 4832830151.
      *
-     * @param string $voice
+     * @param $fake_number
      * @return $this
+     * @internal param string $voice
      */
     public function fakeNumber($fake_number)
     {
@@ -56,8 +57,7 @@ trait TotalVoiceMessageOptions
     public function detectCallbox($detect_callbox)
     {
         $this->detect_callbox = $detect_callbox;
-        
+
         return $this;
     }
-    
 }

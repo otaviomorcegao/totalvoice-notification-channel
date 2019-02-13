@@ -28,5 +28,4 @@ class TotalVoiceConfig
     {
         return $this->config['access_token'];
     }
-    
 }

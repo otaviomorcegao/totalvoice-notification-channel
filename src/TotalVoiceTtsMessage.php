@@ -38,8 +38,7 @@ class TotalVoiceTtsMessage extends TotalVoiceMessage
     public function voiceType($voice_type)
     {
         $this->voice_type = $voice_type;
-        
+
         return $this;
     }
-    
 }
