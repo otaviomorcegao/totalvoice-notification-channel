@@ -7,7 +7,9 @@ class TotalVoiceAudioMessage extends TotalVoiceMessage
     use TotalVoiceMessageOptions;
 
     /**
+     * 
      * Create a message object.
+     * 
      * @param string $audio_url
      * @return static
      */
@@ -17,6 +19,7 @@ class TotalVoiceAudioMessage extends TotalVoiceMessage
     }
 
     /**
+     * 
      * Create a new message instance.
      *
      * @param  string $audio_url
@@ -25,5 +28,4 @@ class TotalVoiceAudioMessage extends TotalVoiceMessage
     {
         $this->content = $audio_url;
     }
-    
 }

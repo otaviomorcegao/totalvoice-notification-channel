@@ -4,19 +4,20 @@ namespace NotificationChannels\TotalVoice;
 
 class TotalVoiceSmsMessage extends TotalVoiceMessage
 {
-   
     /**
+     * 
      * @var null|bool
-     */
+    */
     public $multi_part = null;
 
     /**
+     * 
      * @var null|\DateTime
-     */
+    */
     public $scheduled_datetime = null;
 
-
     /**
+     * 
      * Set the multi-part message option.
      *
      * @param bool $multi_part
@@ -25,11 +26,11 @@ class TotalVoiceSmsMessage extends TotalVoiceMessage
     public function multipart($multi_part)
     {
         $this->multi_part = $multi_part;
-        
         return $this;
     }
 
     /**
+     * 
      * Set the scheleduled datetime message option in Datetime Format.
      *
      * @param \DateTime $scheduled_datetime
@@ -38,7 +39,6 @@ class TotalVoiceSmsMessage extends TotalVoiceMessage
     public function scheledule(\DateTime $scheduled_datetime)
     {
         $this->scheduled_datetime = $scheduled_datetime;
-        
         return $this;
     }
 }

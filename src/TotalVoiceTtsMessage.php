@@ -7,17 +7,19 @@ class TotalVoiceTtsMessage extends TotalVoiceMessage
     use TotalVoiceMessageOptions;
 
     /**
-     * @var null|integer
+     * 
+     * @var null|int
      */
     public $speed = null;
 
     /**
+     * 
      * @var null|string
      */
     public $voice_type = null;
 
-
     /**
+     * 
      * Set the speech speed option. (-10 ~ 10, 0=default)
      *
      * @param integer $speed
@@ -26,11 +28,11 @@ class TotalVoiceTtsMessage extends TotalVoiceMessage
     public function speed($speed)
     {
         $this->speed = $speed;
-        
         return $this;
     }
 
     /**
+     * 
      * Set the voice type of the message. (br-Vitoria default)
      *
      * @param string $voice_type
@@ -39,7 +41,6 @@ class TotalVoiceTtsMessage extends TotalVoiceMessage
     public function voiceType($voice_type)
     {
         $this->voice_type = $voice_type;
-        
         return $this;
     }
 }

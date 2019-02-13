@@ -8,16 +8,19 @@ use NotificationChannels\TotalVoice\Exceptions\CouldNotSendNotification;
 class TotalVoice
 {
     /**
+     * 
      * @var TotalVoiceService
      */
     protected $totalVoiceService;
 
     /**
+     * 
      * @var TotalVoiceConfig
      */
     private $config;
 
     /**
+     * 
      * TotalVoice constructor.
      *
      * @param TotalVoiceService $totalVoiceService
@@ -30,6 +33,7 @@ class TotalVoice
     }
 
     /**
+     * 
      * Send a TotalVoiceMessage to the a phone number.
      *
      * @param  TotalVoiceMessage $message
@@ -48,10 +52,12 @@ class TotalVoice
         if ($message instanceof TotalVoiceAudioMessage) {
             return $this->sendAudioMessage($message, $to);
         }
+
         throw CouldNotSendNotification::invalidMessageObject($message); 
     }
 
     /**
+     * 
      * Send an sms message using the TotalVoice Service.
      *
      * @param TotalVoiceSmsMessage $message
@@ -61,16 +67,15 @@ class TotalVoice
      */
     public function sendSmsMessage(TotalVoiceSmsMessage $message, $to)
     {
-        
         return $this->totalVoiceService->sms->enviar($to, 
                                             trim($message->content), 
                                             $message->provide_feedback, 
                                             $message->multi_part, 
                                             $message->scheduled_datetime);
-
     }
 
     /**
+     * 
      * Make a text-to-speech call using the TotalVoice Service.
      *
      * @param TotalVoiceTtsMessage $message
@@ -80,7 +85,6 @@ class TotalVoice
      */
     public function sendTtsMessage(TotalVoiceTtsMessage $message, $to)
     {
-        
         $optionalParams = [
             'velocidade' => $message->speed,
             'resposta_usuario' => $message->provide_feedback,
@@ -93,10 +97,10 @@ class TotalVoice
         return $this->totalVoiceService->tts->enviar($to, 
                                             trim($message->content), 
                                             $optionalParams);
-
     }
 
     /**
+     * 
      * Make a call using the TotalVoice Service.
      *
      * @param TotalVoiceAudioMessage $message
@@ -106,15 +110,11 @@ class TotalVoice
      */
     public function sendAudioMessage(TotalVoiceAudioMessage $message, $to)
     {
-        
-        
         //Falta o argumento "detectar caixa" postal no metodo da lib
         return $this->totalVoiceService->audio->enviar($to, 
                                             trim($message->content),
                                             $message->provide_feedback,
                                             $message->fake_number,
                                             $message->record_audio);
-
     }
-
 }

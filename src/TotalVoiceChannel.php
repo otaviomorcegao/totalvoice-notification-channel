@@ -3,24 +3,27 @@
 namespace NotificationChannels\TotalVoice;
 
 use Exception;
-use NotificationChannels\TotalVoice\Exceptions\CouldNotSendNotification;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Notifications\Events\NotificationFailed;
+use NotificationChannels\TotalVoice\Exceptions\CouldNotSendNotification;
 
 class TotalVoiceChannel
 {
     /**
+     * 
      * @var TotalVoice
      */
     protected $totalvoice;
 
     /**
+     * 
      * @var Dispatcher
      */
     protected $events;
 
     /**
+     * 
      * TotalVoiceChannel constructor.
      *
      * @param TotalVoice $totalvoice
@@ -33,6 +36,7 @@ class TotalVoiceChannel
     }
 
     /**
+     * 
      * Send the given notification.
      *
      * @param mixed $notifiable
@@ -42,8 +46,6 @@ class TotalVoiceChannel
      */
     public function send($notifiable, Notification $notification)
     {
-        
-        
         try {
             $to = $this->getTo($notifiable);
             $message = $notification->toTotalVoice($notifiable);
@@ -55,21 +57,21 @@ class TotalVoiceChannel
             if (! $message instanceof TotalVoiceMessage) {
                 throw CouldNotSendNotification::invalidMessageObject($message);
             }
-            
-            return $this->totalvoice->sendMessage($message, $to);
 
+            return $this->totalvoice->sendMessage($message, $to);
         } catch (Exception $exception) {
             
             $event = new NotificationFailed($notifiable, $notification, 'totalvoice', ['message' => $exception->getMessage(), 'exception' => $exception]);
             if (function_exists('event')) {
                 event($event);
-            } else if(method_exists($this->events, 'fire')) {
+            } elseif(method_exists($this->events, 'fire')) {
                 $this->events->fire($event);
             }
         }
     }
 
     /**
+     * 
      * Get the address to send a notification to.
      *
      * @param mixed $notifiable

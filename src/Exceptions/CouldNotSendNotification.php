@@ -7,8 +7,8 @@ use NotificationChannels\TotalVoice\TotalVoiceAudioMessage;
 
 class CouldNotSendNotification extends \Exception
 {
-    
     /**
+     * 
      * @param mixed $message
      *
      * @return static
@@ -16,13 +16,14 @@ class CouldNotSendNotification extends \Exception
     public static function invalidMessageObject($message)
     {
         $className = get_class($message) ?: 'Unknown';
+
         return new static(
             "Notification was not sent. Message object class `{$className}` is invalid. It should
             be either `".TotalVoiceMessage::class.'` or `'.TotalVoiceAudioMessage::class.'`');
     }
 
-
     /**
+     * 
      * @return static
      */
     public static function invalidReceiver()
@@ -32,5 +33,4 @@ class CouldNotSendNotification extends \Exception
             method or a phone_number attribute to your notifiable.'
         );
     }
-
 }

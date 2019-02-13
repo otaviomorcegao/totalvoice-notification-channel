@@ -8,6 +8,7 @@ use TotalVoice\Client as TotalVoiceService;
 class TotalVoiceServiceProvider extends ServiceProvider
 {
     /**
+     * 
      * Bootstrap the application services.
      */
     public function boot()
@@ -24,14 +25,15 @@ class TotalVoiceServiceProvider extends ServiceProvider
             });
 
         $this->app->bind(TotalVoiceService::class, function () {
-                $config = $this->app['config']['services.totalvoice'];
-                $access_token = array_get($config, 'access_token');
-                return new TotalVoiceService($access_token, $access_token);
-            });
+            $config = $this->app['config']['services.totalvoice'];
+            $access_token = array_get($config, 'access_token');
+            return new TotalVoiceService($access_token, $access_token);
+        });
 
     }
 
     /**
+     * 
      * Register the application services.
      */
     public function register()
