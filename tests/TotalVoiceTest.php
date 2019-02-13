@@ -97,7 +97,7 @@ class TotalVoiceTest extends MockeryTestCase
             ->andReturn(true);
         $this->totalvoice->sendAudioMessage($message, '+1111111111');
     }
-    
+
     /** @test */
     public function it_will_throw_an_exception_in_case_of_an_unrecognized_message_object()
     {

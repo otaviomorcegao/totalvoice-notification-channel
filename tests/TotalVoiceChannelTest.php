@@ -96,7 +96,6 @@ class Notifiable
     public function routeNotificationFor()
     {
     }
-
 }
 
 class NotifiableWithMethod
@@ -105,7 +104,6 @@ class NotifiableWithMethod
     {
         return '+1111111111';
     }
-
 }
 
 class NotifiableWithAttribute
@@ -115,5 +113,4 @@ class NotifiableWithAttribute
     public function routeNotificationFor()
     {
     }
-    
 }

@@ -102,11 +102,12 @@ class TotalVoice
      */
     public function sendAudioMessage(TotalVoiceAudioMessage $message, $to)
     {
-        return $this->totalVoiceService->audio->enviar($to,
-                                                        trim($message->content),
-                                                        $message->provide_feedback,
-                                                        $message->fake_number,
-                                                        $message->record_audio);
+        return $this->totalVoiceService
+                    ->audio
+                    ->enviar($to,
+                            trim($message->content),
+                            $message->provide_feedback,
+                            $message->fake_number,
+                            $message->record_audio);
     }
-    
 }

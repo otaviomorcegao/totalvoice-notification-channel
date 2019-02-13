@@ -20,10 +20,10 @@ abstract class TotalVoiceMessage
 
     /**
      * Create a message object.
-     * 
+     *
      * @param string $content
      * @return static
-     */
+    */
     public static function create($content = '')
     {
         return new static($content);

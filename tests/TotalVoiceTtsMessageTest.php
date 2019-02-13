@@ -37,5 +37,4 @@ class TotalVoiceTtsMessageTest extends TotalVoiceMessageTest
         $this->assertEquals(2, $message->speed);
         $this->assertEquals('br-Vitoria', $message->voice_type);
     }
-    
 }
