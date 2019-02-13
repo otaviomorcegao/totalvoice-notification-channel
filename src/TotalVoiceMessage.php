@@ -23,7 +23,7 @@ abstract class TotalVoiceMessage
      *
      * @param string $content
      * @return static
-    */
+     */
     public static function create($content = '')
     {
         return new static($content);
