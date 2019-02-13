@@ -61,6 +61,7 @@ Add your TotalVoice Access Token to your `config/services.php`:
     'access_token' => env('TOTALVOICE_ACCESS_TOKEN'),
 ],
 ...
+```
 
 ## Usage
 
