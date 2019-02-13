@@ -8,7 +8,6 @@ use NotificationChannels\TotalVoice\Exceptions\CouldNotSendNotification;
 class TotalVoice
 {
     /**
-     * 
      * @var TotalVoiceService
      */
     protected $totalVoiceService;
@@ -20,7 +19,6 @@ class TotalVoice
     private $config;
 
     /**
-     * 
      * TotalVoice constructor.
      *
      * @param TotalVoiceService $totalVoiceService
@@ -33,7 +31,6 @@ class TotalVoice
     }
 
     /**
-     * 
      * Send a TotalVoiceMessage to the a phone number.
      *
      * @param  TotalVoiceMessage $message
@@ -53,11 +50,11 @@ class TotalVoice
             return $this->sendAudioMessage($message, $to);
         }
 
+        
         throw CouldNotSendNotification::invalidMessageObject($message); 
     }
 
     /**
-     * 
      * Send an sms message using the TotalVoice Service.
      *
      * @param TotalVoiceSmsMessage $message
@@ -67,6 +64,7 @@ class TotalVoice
      */
     public function sendSmsMessage(TotalVoiceSmsMessage $message, $to)
     {
+        
         return $this->totalVoiceService->sms->enviar($to, 
                                             trim($message->content), 
                                             $message->provide_feedback, 
@@ -75,7 +73,6 @@ class TotalVoice
     }
 
     /**
-     * 
      * Make a text-to-speech call using the TotalVoice Service.
      *
      * @param TotalVoiceTtsMessage $message
@@ -94,13 +91,13 @@ class TotalVoice
             'detecta_caixa' => $message->detect_callbox,
         ];
 
+        
         return $this->totalVoiceService->tts->enviar($to, 
                                             trim($message->content), 
                                             $optionalParams);
     }
 
     /**
-     * 
      * Make a call using the TotalVoice Service.
      *
      * @param TotalVoiceAudioMessage $message

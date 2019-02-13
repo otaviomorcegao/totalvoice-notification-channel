@@ -5,13 +5,11 @@ namespace NotificationChannels\TotalVoice;
 class TotalVoiceConfig
 {
     /**
-     * 
      * @var array
      */
     private $config;
 
     /**
-     * 
      * TotalVoiceConfig constructor.
      *
      * @param array $config
@@ -22,7 +20,6 @@ class TotalVoiceConfig
     }
 
     /**
-     * 
      * Get the access token.
      *
      * @return string

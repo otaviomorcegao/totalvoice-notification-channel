@@ -5,7 +5,6 @@ namespace NotificationChannels\TotalVoice;
 abstract class TotalVoiceMessage
 {
     /**
-     * 
      * The message content.
      *
      * @var string
@@ -20,7 +19,6 @@ abstract class TotalVoiceMessage
     public $provide_feedback = null;
 
     /**
-     * 
      * Create a message object.
      * 
      * @param string $content
@@ -32,7 +30,6 @@ abstract class TotalVoiceMessage
     }
 
     /**
-     * 
      * Create a new message instance.
      *
      * @param  string $content
@@ -43,7 +40,6 @@ abstract class TotalVoiceMessage
     }
 
     /**
-     * 
      * Set the message content.
      *
      * @param  string $content
@@ -56,7 +52,6 @@ abstract class TotalVoiceMessage
     }
 
     /**
-     * 
      * Set the provide feedback option.
      *
      * @param bool $provide_feedback
@@ -69,8 +64,7 @@ abstract class TotalVoiceMessage
     }
 
     /**
-     * 
-     * Set the provide feedback option.
+     * Get the provide feedback option.
      *
      * @return null|bool
      */

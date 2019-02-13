@@ -11,19 +11,16 @@ use NotificationChannels\TotalVoice\Exceptions\CouldNotSendNotification;
 class TotalVoiceChannel
 {
     /**
-     * 
      * @var TotalVoice
      */
     protected $totalvoice;
 
     /**
-     * 
      * @var Dispatcher
      */
     protected $events;
 
     /**
-     * 
      * TotalVoiceChannel constructor.
      *
      * @param TotalVoice $totalvoice
@@ -36,7 +33,6 @@ class TotalVoiceChannel
     }
 
     /**
-     * 
      * Send the given notification.
      *
      * @param mixed $notifiable
@@ -60,18 +56,16 @@ class TotalVoiceChannel
 
             return $this->totalvoice->sendMessage($message, $to);
         } catch (Exception $exception) {
-            
             $event = new NotificationFailed($notifiable, $notification, 'totalvoice', ['message' => $exception->getMessage(), 'exception' => $exception]);
             if (function_exists('event')) {
                 event($event);
-            } elseif(method_exists($this->events, 'fire')) {
+            } elseif (method_exists($this->events, 'fire')) {
                 $this->events->fire($event);
             }
         }
     }
 
     /**
-     * 
      * Get the address to send a notification to.
      *
      * @param mixed $notifiable

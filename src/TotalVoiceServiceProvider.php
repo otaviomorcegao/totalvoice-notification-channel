@@ -8,13 +8,10 @@ use TotalVoice\Client as TotalVoiceService;
 class TotalVoiceServiceProvider extends ServiceProvider
 {
     /**
-     * 
      * Bootstrap the application services.
      */
     public function boot()
     {
-        // Bootstrap code here.
-
         $this->app->when(TotalVoiceChannel::class)
             ->needs(TotalVoice::class)
             ->give(function () {

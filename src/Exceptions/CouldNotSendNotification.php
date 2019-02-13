@@ -8,7 +8,6 @@ use NotificationChannels\TotalVoice\TotalVoiceAudioMessage;
 class CouldNotSendNotification extends \Exception
 {
     /**
-     * 
      * @param mixed $message
      *
      * @return static
@@ -23,7 +22,6 @@ class CouldNotSendNotification extends \Exception
     }
 
     /**
-     * 
      * @return static
      */
     public static function invalidReceiver()
