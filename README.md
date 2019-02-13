@@ -11,12 +11,6 @@
 
 This package makes it easy to send [TotalVoice Notifications](https://api.totalvoice.com.br/doc) with Laravel 5.3+.
 
-**Note:** Replace ```TotalVoice``` ```TotalVoice``` ```Rafael``` ```hafael``` ```https://github.com/hafael``` ```villa655321verde@gmail.com``` ```totalvoice``` ```TotalVoice Notification Channels``` ```:style_ci_id``` ```:sensio_labs_id``` with their correct values in [README.md](README.md), [CHANGELOG.md](CHANGELOG.md), [CONTRIBUTING.md](CONTRIBUTING.md), [LICENSE.md](LICENSE.md), [composer.json](composer.json) and other files, then delete this line.
-**Tip:** Use "Find in Path/Files" in your code editor to find these keywords within the package directory and replace all occurences with your specified term.
-
-This is where your description should go. Add a little code example so build can understand real quick how the package can be used. Try and limit it to a paragraph or two.
-
-
 
 ## Contents
 
