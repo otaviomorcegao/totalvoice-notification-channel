@@ -3,7 +3,6 @@
 namespace NotificationChannels\TotalVoice\Test;
 
 use Mockery;
-
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Events\Dispatcher;
 use Mockery\Adapter\Phpunit\MockeryTestCase;
@@ -95,8 +94,7 @@ class Notifiable
     public $phone_number = null;
 
     public function routeNotificationFor()
-    {
-    }
+    {}
 }
 
 class NotifiableWithMethod
@@ -112,6 +110,5 @@ class NotifiableWithAttribute
     public $phone_number = '+22222222222';
 
     public function routeNotificationFor()
-    {
-    }
+    {}
 }

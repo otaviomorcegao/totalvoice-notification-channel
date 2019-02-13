@@ -49,7 +49,7 @@ class TotalVoice
             return $this->sendAudioMessage($message, $to);
         }
         
-        throw CouldNotSendNotification::invalidMessageObject($message); 
+        throw CouldNotSendNotification::invalidMessageObject($message);
     }
 
     /**
@@ -62,11 +62,11 @@ class TotalVoice
      */
     public function sendSmsMessage(TotalVoiceSmsMessage $message, $to)
     {
-        return $this->totalVoiceService->sms->enviar($to, 
-                                            trim($message->content), 
-                                            $message->provide_feedback, 
-                                            $message->multi_part, 
-                                            $message->scheduled_datetime);
+        return $this->totalVoiceService->sms->enviar($to,
+                                                    trim($message->content),
+                                                    $message->provide_feedback,
+                                                    $message->multi_part,
+                                                    $message->scheduled_datetime);
     }
 
     /**
@@ -88,9 +88,9 @@ class TotalVoice
             'detecta_caixa' => $message->detect_callbox,
         ];
         
-        return $this->totalVoiceService->tts->enviar($to, 
-                                            trim($message->content), 
-                                            $optionalParams);
+        return $this->totalVoiceService->tts->enviar($to,
+                                                    trim($message->content),
+                                                    $optionalParams);
     }
 
     /**
@@ -104,11 +104,10 @@ class TotalVoice
     public function sendAudioMessage(TotalVoiceAudioMessage $message, $to)
     {
         //Falta o argumento "detectar caixa" postal no metodo da lib
-        return $this->totalVoiceService->audio->enviar($to, 
-                                            trim($message->content),
-                                            $message->provide_feedback,
-                                            $message->fake_number,
-                                            $message->record_audio);
+        return $this->totalVoiceService->audio->enviar($to,
+                                                        trim($message->content),
+                                                        $message->provide_feedback,
+                                                        $message->fake_number,
+                                                        $message->record_audio);
     }
-    
 }

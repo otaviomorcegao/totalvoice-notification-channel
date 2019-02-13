@@ -26,5 +26,4 @@ class TotalVoiceAudioMessage extends TotalVoiceMessage
     {
         $this->content = $audio_url;
     }
-    
 }

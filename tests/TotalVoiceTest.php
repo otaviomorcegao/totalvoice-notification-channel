@@ -3,7 +3,6 @@
 namespace NotificationChannels\TotalVoice\Test;
 
 use Mockery;
-
 use Illuminate\Contracts\Events\Dispatcher;
 use TotalVoice\Client as TotalVoiceService;
 use Mockery\Adapter\Phpunit\MockeryTestCase;
@@ -34,18 +33,11 @@ class TotalVoiceTest extends MockeryTestCase
     public function setUp()
     {
         parent::setUp();
-
-        //$client = new TotalVoiceService('access_token');
-
         $this->totalVoiceService = Mockery::mock(new TotalVoiceService('access_token'));
         $this->dispatcher = Mockery::mock(Dispatcher::class);
         $this->config = Mockery::mock(TotalVoiceConfig::class);
-
-        //===============================
         $this->totalVoiceService->messages = Mockery::mock($this->totalVoiceService->sms);
         $this->totalVoiceService->calls = Mockery::mock($this->totalVoiceService->audio);
-        //===============================
-
         $this->totalvoice = new TotalVoice($this->totalVoiceService, $this->config);
     }
 
@@ -100,7 +92,6 @@ class TotalVoiceTest extends MockeryTestCase
         $message->fakeNumber('+2222222222');
         $message->recordAudio(false);
         $message->detectCallbox(true);
-
         $this->totalVoiceService->calls->shouldReceive('enviar')
             ->with('+1111111111', 'http://foooo.bar/audio.mp3', true, '+2222222222', true)
             ->andReturn(true);
@@ -121,4 +112,6 @@ class TotalVoiceTest extends MockeryTestCase
 }
 
 class InvalidMessage extends TotalVoiceMessage
-{}
+{
+    
+}

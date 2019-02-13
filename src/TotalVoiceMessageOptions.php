@@ -20,7 +20,7 @@ trait TotalVoiceMessageOptions
     public $detect_callbox = null;
 
     /**
-     * Define o número de telefone que aparecerá no identificador 
+     * Define o número de telefone que aparecerá no identificador
      * de quem receber a chamada, formato DDD + Número exemplo: 4832830151.
      *
      * @param string $voice
@@ -36,7 +36,7 @@ trait TotalVoiceMessageOptions
     /**
      * Define se vai gravar a chamada.
      *
-     * @param boolean $record_audio
+     * @param bool $record_audio
      * @return $this
      */
     public function recordAudio($record_audio)
@@ -50,7 +50,7 @@ trait TotalVoiceMessageOptions
      * Define se vai desconectar em caso de cair na caixa postal
      * (vivo, claro, tim e oi).
      *
-     * @param boolean $detect_callbox
+     * @param bool $detect_callbox
      * @return $this
      */
     public function detectCallbox($detect_callbox)
