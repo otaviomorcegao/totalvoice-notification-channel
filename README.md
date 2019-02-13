@@ -1,6 +1,6 @@
 Use this repo as a skeleton for your new channel, once you're done please submit a Pull Request on [this repo](https://github.com/laravel-notification-channels/new-channels) with all the files.
 
-Here's the latest documentation on Laravel 5.3 Notifications System: 
+Here's the latest documentation on Laravel 5.3+ Notifications System: 
 
 https://laravel.com/docs/master/notifications
 
@@ -40,19 +40,139 @@ This is where your description should go. Add a little code example so build can
 
 ## Installation
 
-Please also include the steps for any third-party service setup that's required for this package.
+You can install the package via composer:
+
+``` bash
+composer require laravel-notification-channels/totalvoice
+```
+
+Add the service provider (only required on Laravel 5.4 or lower):
+
+```php
+// config/app.php
+'providers' => [
+    ...
+    NotificationChannels\TotalVoice\TotalVoiceServiceProvider::class,
+],
+```
 
 ### Setting up the Totalvoice service
 
-Optionally include a few steps how users can set up the service.
+Add your TotalVoice Access Token to your `config/services.php`:
+
+```php
+// config/services.php
+...
+'totalvoice' => [
+    'access_token' => env('TOTALVOICE_ACCESS_TOKEN'),
+],
+...
 
 ## Usage
 
-Some code examples, make it clear how to use the package
+Now you can use the channel in your `via()` method inside the notification:
+
+``` php
+use NotificationChannels\TotalVoice\TotalVoiceChannel;
+use NotificationChannels\TotalVoice\TotalVoiceSmsMessage;
+use Illuminate\Notifications\Notification;
+
+class AccountApproved extends Notification
+{
+    public function via($notifiable)
+    {
+        return [TotalVoiceChannel::class];
+    }
+
+    public function toTotalVoice($notifiable)
+    {
+        return (new TotalVoiceSmsMessage())
+            ->content("Your {$notifiable->service} account was approved!");
+    }
+}
+```
+
+You can also send an TTS (text-to-speech) audio call:
+
+``` php
+use NotificationChannels\TotalVoice\TotalVoiceChannel;
+use NotificationChannels\TotalVoice\TotalVoiceTtsMessage;
+use Illuminate\Notifications\Notification;
+
+class AccountApproved extends Notification
+{
+    public function via($notifiable)
+    {
+        return [TotalVoiceChannel::class];
+    }
+
+    public function toTotalVoice($notifiable)
+    {
+        return (new TotalVoiceTtsMessage())
+            ->content("Your {$notifiable->service} account was approved!");
+    }
+}
+```
+
+Or create a TotalVoice audio call from .mp3 file url:
+
+``` php
+use NotificationChannels\TotalVoice\TotalVoiceChannel;
+use NotificationChannels\TotalVoice\TotalVoiceAudioMessage;
+use Illuminate\Notifications\Notification;
+
+class AccountApproved extends Notification
+{
+    public function via($notifiable)
+    {
+        return [TotalVoiceChannel::class];
+    }
+
+    public function toTotalVoice($notifiable)
+    {
+        return (new TotalVoiceAudioMessage())
+            ->content("http://foooo.bar/audio.mp3");
+    }
+}
+```
+
+In order to let your Notification know which phone are you sending/calling to, the channel will look for the `phone_number` attribute of the Notifiable model. If you want to override this behaviour, add the `routeNotificationForTotalVoice` method to your Notifiable model.
+
+```php
+public function routeNotificationForTotalVoice()
+{
+    return '+5521999999999';
+}
+```
+
+
 
 ### Available Message methods
 
-A list of all available options
+#### TotalVoiceSmsMessage (SMS)
+
+- `provideFeedback(false)`: Wait for recipient feedback.
+- `multipart(false)`: Supports SMS with > 160 < 16,000 char. Sends multiple sms up to 160char to the same number.
+- `scheledule(new \DateTime())`: date and time to schedule the sms delivery. null as default sends immediately.
+- `content('')`: Accepts a string value for the notification body.
+
+#### TotalVoiceTtsMessage (Text-to-speech audio call)
+
+- `provideFeedback(false)`: Wait for recipient feedback.
+- `fakeNumber(null)`: Accepts a phone to use as the notification sender.
+- `recordAudio(false)`: Save the call.
+- `detectCallbox(false)`: Automatically disconnects within 3 seconds if it falls into the mailbox (vivo, claro, tim, oi).
+- `speed(0)`: From -10 to 10. When -10=very slow, 0=normal and 10=very fast.
+- `voiceType('br-Vitoria')`: language-Character acronym who will speak.
+- `content('')`: Accepts a string value for the notification body.
+
+#### TotalVoiceAudioMessage (.mp3 audio call)
+
+- `provideFeedback(false)`: Wait for recipient feedback.
+- `fakeNumber('+5521999999999')`: Accepts a phone to use as the notification sender.
+- `recordAudio(false)`: Save the call.
+- `detectCallbox(false)`: Automatically disconnects within 3 seconds if it falls into the mailbox (vivo, claro, tim, oi).
+- `content('http://foooo.bar/audio.mp3')`: Accepts an .mp3 file url for the call.
 
 ## Changelog
 
