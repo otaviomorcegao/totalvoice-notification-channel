@@ -59,4 +59,5 @@ trait TotalVoiceMessageOptions
         
         return $this;
     }
+    
 }

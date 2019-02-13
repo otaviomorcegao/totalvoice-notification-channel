@@ -40,4 +40,5 @@ class TotalVoiceAudioMessageTest extends TotalVoiceMessageTest
         $this->assertEquals(false, $message->record_audio);
         $this->assertEquals(true, $message->detect_callbox);
     }
+    
 }

@@ -76,4 +76,5 @@ class IntegrationTest extends MockeryTestCase
             ->with(...$args)
             ->andReturn(true);
     }
+    
 }

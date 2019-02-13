@@ -95,7 +95,6 @@ class TotalVoiceTest extends MockeryTestCase
         $this->totalVoiceService->calls->shouldReceive('enviar')
             ->with('+1111111111', 'http://foooo.bar/audio.mp3', true, '+2222222222', true)
             ->andReturn(true);
-        
         $this->totalvoice->sendAudioMessage($message, '+1111111111');
     }
     
@@ -113,5 +112,4 @@ class TotalVoiceTest extends MockeryTestCase
 
 class InvalidMessage extends TotalVoiceMessage
 {
-    
 }

@@ -39,4 +39,5 @@ class TotalVoiceSmsMessage extends TotalVoiceMessage
 
         return $this;
     }
+    
 }

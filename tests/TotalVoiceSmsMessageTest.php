@@ -38,4 +38,5 @@ class TotalVoiceSmsMessageTest extends TotalVoiceMessageTest
         $this->assertEquals(false, $message->multi_part);
         $this->assertEquals($date, $message->scheduled_datetime);
     }
+    
 }

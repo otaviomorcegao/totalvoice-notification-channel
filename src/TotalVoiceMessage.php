@@ -74,4 +74,5 @@ abstract class TotalVoiceMessage
     {
         return $this->provide_feedback;
     }
+    
 }

@@ -94,7 +94,9 @@ class Notifiable
     public $phone_number = null;
 
     public function routeNotificationFor()
-    {}
+    {
+    }
+
 }
 
 class NotifiableWithMethod
@@ -103,6 +105,7 @@ class NotifiableWithMethod
     {
         return '+1111111111';
     }
+
 }
 
 class NotifiableWithAttribute
@@ -110,5 +113,7 @@ class NotifiableWithAttribute
     public $phone_number = '+22222222222';
 
     public function routeNotificationFor()
-    {}
+    {
+    }
+    
 }
