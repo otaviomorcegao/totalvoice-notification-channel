@@ -3,14 +3,15 @@
 namespace NotificationChannels\TotalVoice\Test;
 
 use Mockery;
-use NotificationChannels\TotalVoice\TotalVoice;
+
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Events\Dispatcher;
 use Mockery\Adapter\Phpunit\MockeryTestCase;
+use NotificationChannels\TotalVoice\TotalVoice;
 use NotificationChannels\TotalVoice\TotalVoiceChannel;
+use Illuminate\Notifications\Events\NotificationFailed;
 use NotificationChannels\TotalVoice\TotalVoiceSmsMessage;
 use NotificationChannels\TotalVoice\TotalVoiceAudioMessage;
-use Illuminate\Notifications\Events\NotificationFailed;
 
 class TotalVoiceChannelTest extends MockeryTestCase
 {
@@ -26,10 +27,8 @@ class TotalVoiceChannelTest extends MockeryTestCase
     public function setUp()
     {
         parent::setUp();
-
         $this->totalvoice = Mockery::mock(TotalVoice::class);
         $this->dispatcher = Mockery::mock(Dispatcher::class);
-
         $this->channel = new TotalVoiceChannel($this->totalvoice, $this->dispatcher);
     }
 
@@ -38,12 +37,9 @@ class TotalVoiceChannelTest extends MockeryTestCase
     {
         $notifiable = new Notifiable();
         $notification = Mockery::mock(Notification::class);
-
         $this->dispatcher->shouldReceive('fire')
             ->with(Mockery::type(NotificationFailed::class));
-
         $result = $this->channel->send($notifiable, $notification);
-
         $this->assertNull($result);
     }
 
@@ -52,13 +48,10 @@ class TotalVoiceChannelTest extends MockeryTestCase
     {
         $notifiable = new NotifiableWithMethod();
         $notification = Mockery::mock(Notification::class);
-
         $message = new TotalVoiceSmsMessage('Message text');
         $notification->shouldReceive('toTotalVoice')->andReturn($message);
-
         $this->totalvoice->shouldReceive('sendMessage')
             ->with($message, '+1111111111', false);
-
         $this->channel->send($notifiable, $notification);
     }
 
@@ -67,13 +60,10 @@ class TotalVoiceChannelTest extends MockeryTestCase
     {
         $notifiable = new NotifiableWithAttribute();
         $notification = Mockery::mock(Notification::class);
-
         $message = new TotalVoiceAudioMessage('http://foooo.bar/audio.mp3');
         $notification->shouldReceive('toTotalVoice')->andReturn($message);
-
         $this->totalvoice->shouldReceive('sendMessage')
             ->with($message, '+22222222222', false);
-
         $this->channel->send($notifiable, $notification);
     }
 
@@ -82,12 +72,9 @@ class TotalVoiceChannelTest extends MockeryTestCase
     {
         $notifiable = new NotifiableWithAttribute();
         $notification = Mockery::mock(Notification::class);
-
         $notification->shouldReceive('toTotalVoice')->andReturn('Message text');
-
         $this->totalvoice->shouldReceive('sendMessage')
             ->with(Mockery::type(TotalVoiceSmsMessage::class), Mockery::any(), false);
-
         $this->channel->send($notifiable, $notification);
     }
 
@@ -96,16 +83,11 @@ class TotalVoiceChannelTest extends MockeryTestCase
     {
         $notifiable = new NotifiableWithAttribute();
         $notification = Mockery::mock(Notification::class);
-
-        // Invalid message
         $notification->shouldReceive('toTotalVoice')->andReturn(-1);
-
         $this->dispatcher->shouldReceive('fire')
             ->with(Mockery::type(NotificationFailed::class));
-
         $this->channel->send($notifiable, $notification);
     }
-
 }
 
 class Notifiable

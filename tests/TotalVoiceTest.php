@@ -3,24 +3,20 @@
 namespace NotificationChannels\TotalVoice\Test;
 
 use Mockery;
-use Services_TotalVoice_Rest_Calls;
-use Services_TotalVoice_Rest_Messages;
-use NotificationChannels\TotalVoice\TotalVoice;
-
-use TotalVoice\Client as TotalVoiceService;
 
 use Illuminate\Contracts\Events\Dispatcher;
+use TotalVoice\Client as TotalVoiceService;
 use Mockery\Adapter\Phpunit\MockeryTestCase;
+use NotificationChannels\TotalVoice\TotalVoice;
 use NotificationChannels\TotalVoice\TotalVoiceConfig;
 use NotificationChannels\TotalVoice\TotalVoiceMessage;
-use NotificationChannels\TotalVoice\TotalVoiceTtsMessage;
 use NotificationChannels\TotalVoice\TotalVoiceSmsMessage;
+use NotificationChannels\TotalVoice\TotalVoiceTtsMessage;
 use NotificationChannels\TotalVoice\TotalVoiceAudioMessage;
 use NotificationChannels\TotalVoice\Exceptions\CouldNotSendNotification;
 
 class TotalVoiceTest extends MockeryTestCase
 {
-    
     /** @var TotalVoice */
     protected $totalvoice;
 
@@ -96,7 +92,6 @@ class TotalVoiceTest extends MockeryTestCase
         $this->totalvoice->sendMessage($message, '+1111111111');
     }
 
-    
     /** @test */
     public function it_can_send_a_call_to_totalvoice()
     {
@@ -109,10 +104,9 @@ class TotalVoiceTest extends MockeryTestCase
         $this->totalVoiceService->calls->shouldReceive('enviar')
             ->with('+1111111111', 'http://foooo.bar/audio.mp3', true, '+2222222222', true)
             ->andReturn(true);
-
-        $this->totalvoice->sendAudioMessage($message, '+1111111111'); 
+        
+        $this->totalvoice->sendAudioMessage($message, '+1111111111');
     }
-
     
     /** @test */
     public function it_will_throw_an_exception_in_case_of_an_unrecognized_message_object()
@@ -127,5 +121,4 @@ class TotalVoiceTest extends MockeryTestCase
 }
 
 class InvalidMessage extends TotalVoiceMessage
-{
-}
+{}

@@ -5,7 +5,6 @@ namespace NotificationChannels\TotalVoice\Test;
 use Mockery\Adapter\Phpunit\MockeryTestCase;
 use NotificationChannels\TotalVoice\TotalVoiceMessage;
 
-
 abstract class TotalVoiceMessageTest extends MockeryTestCase
 {
     /** @var TotalVoiceMessage */

@@ -42,12 +42,13 @@ abstract class TotalVoiceMessage
     /**
      * Set the message content.
      *
-     * @param  string $content
+     * @param string $content
      * @return $this
      */
     public function content($content)
     {
         $this->content = $content;
+
         return $this;
     }
 
@@ -60,6 +61,7 @@ abstract class TotalVoiceMessage
     public function provideFeedback($provide_feedback)
     {
         $this->provide_feedback = $provide_feedback;
+        
         return $this;
     }
 

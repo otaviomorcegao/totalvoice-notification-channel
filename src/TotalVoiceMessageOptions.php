@@ -21,7 +21,7 @@ trait TotalVoiceMessageOptions
 
     /**
      * Define o número de telefone que aparecerá no identificador 
-     * de quem receber a chamada, formato DDD + Número exemplo: 4832830151
+     * de quem receber a chamada, formato DDD + Número exemplo: 4832830151.
      *
      * @param string $voice
      * @return $this
@@ -29,12 +29,12 @@ trait TotalVoiceMessageOptions
     public function fakeNumber($fake_number)
     {
         $this->fake_number = $fake_number;
+
         return $this;
     }
 
     /**
-     * 
-     * Define se vai gravar a chamada
+     * Define se vai gravar a chamada.
      *
      * @param boolean $record_audio
      * @return $this
@@ -42,12 +42,13 @@ trait TotalVoiceMessageOptions
     public function recordAudio($record_audio)
     {
         $this->record_audio = $record_audio;
+
         return $this;
     }
 
     /**
      * Define se vai desconectar em caso de cair na caixa postal
-     * (vivo, claro, tim e oi)
+     * (vivo, claro, tim e oi).
      *
      * @param boolean $detect_callbox
      * @return $this
@@ -55,6 +56,7 @@ trait TotalVoiceMessageOptions
     public function detectCallbox($detect_callbox)
     {
         $this->detect_callbox = $detect_callbox;
+        
         return $this;
     }
 }

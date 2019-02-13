@@ -4,12 +4,8 @@ namespace NotificationChannels\TotalVoice\Test;
 
 use NotificationChannels\TotalVoice\TotalVoiceTtsMessage;
 
-
-
-
 class TotalVoiceTtsMessageTest extends TotalVoiceMessageTest
 {
-    
     public function setUp()
     {
         parent::setUp();
@@ -34,14 +30,11 @@ class TotalVoiceTtsMessageTest extends TotalVoiceMessageTest
     public function it_can_set_optional_parameters()
     {
         $message = TotalVoiceTtsMessage::create('myMessage');
-        
         $message->provideFeedback(true);
         $message->speed(2);
         $message->voiceType('br-Vitoria');
-
         $this->assertEquals(true, $message->provide_feedback);
         $this->assertEquals(2, $message->speed);
         $this->assertEquals('br-Vitoria', $message->voice_type);
     }
-    
 }

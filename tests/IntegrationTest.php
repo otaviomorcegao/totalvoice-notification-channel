@@ -3,11 +3,11 @@
 namespace NotificationChannels\TotalVoice\Test;
 
 use Mockery;
-use NotificationChannels\TotalVoice\TotalVoice;
-use TotalVoice\Client as TotalVoiceService;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Events\Dispatcher;
+use TotalVoice\Client as TotalVoiceService;
 use Mockery\Adapter\Phpunit\MockeryTestCase;
+use NotificationChannels\TotalVoice\TotalVoice;
 use NotificationChannels\TotalVoice\TotalVoiceConfig;
 use NotificationChannels\TotalVoice\TotalVoiceChannel;
 use NotificationChannels\TotalVoice\TotalVoiceSmsMessage;
@@ -15,13 +15,11 @@ use NotificationChannels\TotalVoice\TotalVoiceAudioMessage;
 
 class IntegrationTest extends MockeryTestCase
 {
-    
     /** @var TotalVoiceService */
     protected $totalVoiceService;
 
     /** @var Notification */
     protected $notification;
-
 
     /** @var Dispatcher */
     protected $events;
@@ -31,10 +29,8 @@ class IntegrationTest extends MockeryTestCase
         parent::setUp();
         $this->client = new TotalVoiceService('my-access-token');
         $this->totalVoiceService = Mockery::mock($this->client);
-        
         $this->totalVoiceService->messages = Mockery::mock($this->client->sms)->shouldAllowMockingProtectedMethods();
         $this->totalVoiceService->calls = Mockery::mock($this->client->audio);
-
         $this->events = Mockery::mock(Dispatcher::class);
         $this->notification = Mockery::mock(Notification::class);
     }
@@ -50,7 +46,6 @@ class IntegrationTest extends MockeryTestCase
         $totalvoice = new TotalVoice($this->totalVoiceService, $config);
         $channel = new TotalVoiceChannel($totalvoice, $this->events);
         $this->smsMessageWillBeSentToTotalVoiceWith('+22222222222', 'Message text');
-
         $channel->send(new NotifiableWithAttribute(), $this->notification);
     }
 
@@ -70,7 +65,7 @@ class IntegrationTest extends MockeryTestCase
 
     protected function smsMessageWillBeSentToTotalVoiceWith(...$args)
     {
-        $this->totalVoiceService->messages->shouldReceive("enviar")
+        $this->totalVoiceService->messages->shouldReceive('enviar')
             ->with(...$args)
             ->andReturn(true);
     }
@@ -81,5 +76,4 @@ class IntegrationTest extends MockeryTestCase
             ->with(...$args)
             ->andReturn(true);
     }
-    
 }

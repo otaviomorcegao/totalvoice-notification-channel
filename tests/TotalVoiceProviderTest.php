@@ -4,13 +4,13 @@ namespace NotificationChannels\TotalVoice\Test;
 
 use Mockery;
 use ArrayAccess;
-use NotificationChannels\TotalVoice\TotalVoice;
 use TotalVoice\Client as TotalVoiceService;
 use Mockery\Adapter\Phpunit\MockeryTestCase;
+use NotificationChannels\TotalVoice\TotalVoice;
+use Illuminate\Contracts\Foundation\Application;
 use NotificationChannels\TotalVoice\TotalVoiceConfig;
 use NotificationChannels\TotalVoice\TotalVoiceChannel;
 use NotificationChannels\TotalVoice\TotalVoiceServiceProvider as TotalVoiceProvider;
-use Illuminate\Contracts\Foundation\Application;
 
 class TotalVoiceProviderTest extends MockeryTestCase
 {

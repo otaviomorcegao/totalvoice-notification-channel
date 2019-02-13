@@ -6,13 +6,12 @@ class TotalVoiceSmsMessage extends TotalVoiceMessage
 {
     /**
      * @var null|bool
-    */
+     */
     public $multi_part = null;
 
     /**
-     * 
      * @var null|\DateTime
-    */
+     */
     public $scheduled_datetime = null;
 
     /**
@@ -24,6 +23,7 @@ class TotalVoiceSmsMessage extends TotalVoiceMessage
     public function multipart($multi_part)
     {
         $this->multi_part = $multi_part;
+        
         return $this;
     }
 
@@ -36,6 +36,7 @@ class TotalVoiceSmsMessage extends TotalVoiceMessage
     public function scheledule(\DateTime $scheduled_datetime)
     {
         $this->scheduled_datetime = $scheduled_datetime;
+
         return $this;
     }
 }

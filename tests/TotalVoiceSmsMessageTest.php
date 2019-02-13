@@ -5,8 +5,7 @@ namespace NotificationChannels\TotalVoice\Test;
 use NotificationChannels\TotalVoice\TotalVoiceSmsMessage;
 
 class TotalVoiceSmsMessageTest extends TotalVoiceMessageTest
-{
-    
+{    
     public function setUp()
     {
         parent::setUp();
@@ -31,15 +30,12 @@ class TotalVoiceSmsMessageTest extends TotalVoiceMessageTest
     public function it_can_set_optional_parameters()
     {
         $message = TotalVoiceSmsMessage::create('myMessage');
-        
         $date = new \DateTime('now');
         $message->provideFeedback(true);
         $message->multipart(false);
         $message->scheledule($date);
-
         $this->assertEquals(true, $message->provide_feedback);
         $this->assertEquals(false, $message->multi_part);
         $this->assertEquals($date, $message->scheduled_datetime);
     }
-    
 }

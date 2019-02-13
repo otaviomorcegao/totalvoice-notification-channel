@@ -13,7 +13,6 @@ class TotalVoice
     protected $totalVoiceService;
 
     /**
-     * 
      * @var TotalVoiceConfig
      */
     private $config;
@@ -49,7 +48,6 @@ class TotalVoice
         if ($message instanceof TotalVoiceAudioMessage) {
             return $this->sendAudioMessage($message, $to);
         }
-
         
         throw CouldNotSendNotification::invalidMessageObject($message); 
     }
@@ -64,7 +62,6 @@ class TotalVoice
      */
     public function sendSmsMessage(TotalVoiceSmsMessage $message, $to)
     {
-        
         return $this->totalVoiceService->sms->enviar($to, 
                                             trim($message->content), 
                                             $message->provide_feedback, 
@@ -90,7 +87,6 @@ class TotalVoice
             'gravar_audio' => $message->record_audio,
             'detecta_caixa' => $message->detect_callbox,
         ];
-
         
         return $this->totalVoiceService->tts->enviar($to, 
                                             trim($message->content), 
@@ -114,4 +110,5 @@ class TotalVoice
                                             $message->fake_number,
                                             $message->record_audio);
     }
+    
 }
