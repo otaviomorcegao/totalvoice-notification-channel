@@ -11,21 +11,21 @@ class TotalVoiceSmsMessageTest extends TotalVoiceMessageTest
         parent::setUp();
         $this->message = new TotalVoiceSmsMessage();
     }
-    
+
     /** @test */
     public function it_can_accept_a_message_when_constructing_a_message()
     {
         $message = new TotalVoiceSmsMessage('myMessage');
         $this->assertEquals('myMessage', $message->content);
     }
-    
+
     /** @test */
     public function it_provides_a_create_method()
     {
         $message = TotalVoiceSmsMessage::create('myMessage');
         $this->assertEquals('myMessage', $message->content);
     }
-    
+
     /** @test */
     public function it_can_set_optional_parameters()
     {
@@ -38,5 +38,4 @@ class TotalVoiceSmsMessageTest extends TotalVoiceMessageTest
         $this->assertEquals(false, $message->multi_part);
         $this->assertEquals($date, $message->scheduled_datetime);
     }
-    
 }

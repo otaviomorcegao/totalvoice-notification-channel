@@ -20,7 +20,7 @@ abstract class TotalVoiceMessage
 
     /**
      * Create a message object.
-     * 
+     *
      * @param string $content
      * @return static
      */
