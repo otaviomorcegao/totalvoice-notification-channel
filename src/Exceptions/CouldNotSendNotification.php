@@ -28,7 +28,6 @@ class CouldNotSendNotification extends \Exception
     {
         return new static(
             'The notifiable did not have a receiving phone number. Add a routeNotificationForTotalVoice
-            method or a phone_number attribute to your notifiable.'
-        );
+            method or a phone_number attribute to your notifiable.');
     }
 }
