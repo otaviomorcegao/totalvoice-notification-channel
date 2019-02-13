@@ -1,10 +1,4 @@
-Use this repo as a skeleton for your new channel, once you're done please submit a Pull Request on [this repo](https://github.com/laravel-notification-channels/new-channels) with all the files.
-
-Here's the latest documentation on Laravel 5.3+ Notifications System: 
-
-https://laravel.com/docs/master/notifications
-
-# A Boilerplate repo for contributions
+# TotalVoice notifications channel for Laravel 5.3+
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/laravel-notification-channels/totalvoice.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/totalvoice)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
@@ -15,9 +9,9 @@ https://laravel.com/docs/master/notifications
 [![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/laravel-notification-channels/totalvoice/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/laravel-notification-channels/totalvoice/?branch=master)
 [![Total Downloads](https://img.shields.io/packagist/dt/laravel-notification-channels/totalvoice.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/totalvoice)
 
-This package makes it easy to send notifications using [Totalvoice](link to service) with Laravel 5.3.
+This package makes it easy to send [TotalVoice Notifications](https://api.totalvoice.com.br/doc) with Laravel 5.3+.
 
-**Note:** Replace ```TotalVoice``` ```Totalvoice``` ```Rafael``` ```hafael``` ```https://github.com/hafael``` ```villa655321verde@gmail.com``` ```totalvoice``` ```Totalvoice Notification Channels``` ```:style_ci_id``` ```:sensio_labs_id``` with their correct values in [README.md](README.md), [CHANGELOG.md](CHANGELOG.md), [CONTRIBUTING.md](CONTRIBUTING.md), [LICENSE.md](LICENSE.md), [composer.json](composer.json) and other files, then delete this line.
+**Note:** Replace ```TotalVoice``` ```TotalVoice``` ```Rafael``` ```hafael``` ```https://github.com/hafael``` ```villa655321verde@gmail.com``` ```totalvoice``` ```TotalVoice Notification Channels``` ```:style_ci_id``` ```:sensio_labs_id``` with their correct values in [README.md](README.md), [CHANGELOG.md](CHANGELOG.md), [CONTRIBUTING.md](CONTRIBUTING.md), [LICENSE.md](LICENSE.md), [composer.json](composer.json) and other files, then delete this line.
 **Tip:** Use "Find in Path/Files" in your code editor to find these keywords within the package directory and replace all occurences with your specified term.
 
 This is where your description should go. Add a little code example so build can understand real quick how the package can be used. Try and limit it to a paragraph or two.
@@ -27,7 +21,7 @@ This is where your description should go. Add a little code example so build can
 ## Contents
 
 - [Installation](#installation)
-	- [Setting up the Totalvoice service](#setting-up-the-Totalvoice-service)
+	- [Setting up the TotalVoice service](#setting-up-the-TotalVoice-service)
 - [Usage](#usage)
 	- [Available Message methods](#available-message-methods)
 - [Changelog](#changelog)
@@ -56,7 +50,7 @@ Add the service provider (only required on Laravel 5.4 or lower):
 ],
 ```
 
-### Setting up the Totalvoice service
+### Setting up the TotalVoice service
 
 Add your TotalVoice Access Token to your `config/services.php`:
 
