@@ -42,7 +42,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "NotificationChannels\\TotalVoice\\TotalVoiceProvider"
+                "NotificationChannels\\TotalVoice\\TotalVoiceServiceProvider"
             ]
         }
     }
