@@ -1,13 +1,13 @@
 # TotalVoice notifications channel for Laravel 5.3+
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/laravel-notification-channels/totalvoice.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/totalvoice)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/hafael/totalvoice-notification-channel.svg?style=flat-square)](https://packagist.org/packages/hafael/totalvoice-notification-channel)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/laravel-notification-channels/totalvoice/master.svg?style=flat-square)](https://travis-ci.org/laravel-notification-channels/totalvoice)
+[![Build Status](https://img.shields.io/travis/hafael/totalvoice-notification-channel/master.svg?style=flat-square)](https://travis-ci.org/hafael/totalvoice-notification-channel)
 [![StyleCI](https://styleci.io/repos/170519887/shield)](https://styleci.io/repos/170519887)
 [![SymfonyInsight](https://insight.symfony.com/projects/7e6759a3-1476-49f5-9585-58cd3f0ef0f2/mini.svg)](https://insight.symfony.com/projects/7e6759a3-1476-49f5-9585-58cd3f0ef0f2)
-[![Quality Score](https://img.shields.io/scrutinizer/g/laravel-notification-channels/totalvoice.svg?style=flat-square)](https://scrutinizer-ci.com/g/laravel-notification-channels/totalvoice)
-[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/laravel-notification-channels/totalvoice/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/laravel-notification-channels/totalvoice/?branch=master)
-[![Total Downloads](https://img.shields.io/packagist/dt/laravel-notification-channels/totalvoice.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/totalvoice)
+[![Quality Score](https://img.shields.io/scrutinizer/g/hafael/totalvoice-notification-channel.svg?style=flat-square)](https://scrutinizer-ci.com/g/hafael/totalvoice-notification-channel)
+[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/hafael/totalvoice-notification-channel/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/hafael/totalvoice-notification-channel/?branch=master)
+[![Total Downloads](https://img.shields.io/packagist/dt/hafael/totalvoice-notification-channel.svg?style=flat-square)](https://packagist.org/packages/hafael/totalvoice-notification-channel)
 
 This package makes it easy to send [TotalVoice Notifications](https://api.totalvoice.com.br/doc) with Laravel 5.3+.
 
@@ -31,7 +31,7 @@ This package makes it easy to send [TotalVoice Notifications](https://api.totalv
 You can install the package via composer:
 
 ``` bash
-composer require laravel-notification-channels/totalvoice
+composer require hafael/totalvoice-notification-channel
 ```
 
 Add the service provider (only required on Laravel 5.4 or lower):

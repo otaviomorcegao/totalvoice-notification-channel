@@ -1,7 +1,7 @@
 {
-    "name": "laravel-notification-channels/totalvoice",
+    "name": "hafael/totalvoice-notification-channel",
     "description": "TotalVoice Notification Channels for Laravel 5.3+",
-    "homepage": "https://github.com/laravel-notification-channels/totalvoice",
+    "homepage": "https://github.com/hafael/totalvoice-notification-channel",
     "license": "MIT",
     "authors": [
         {
