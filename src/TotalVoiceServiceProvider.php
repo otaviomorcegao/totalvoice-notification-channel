@@ -25,7 +25,7 @@ class TotalVoiceServiceProvider extends ServiceProvider
             $config = $this->app['config']['services.totalvoice'];
             $access_token = array_get($config, 'access_token');
 
-            return new TotalVoiceService($access_token, $access_token);
+            return new TotalVoiceService($access_token);
         });
     }
 
