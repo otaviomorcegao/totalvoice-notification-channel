@@ -5,9 +5,9 @@ namespace NotificationChannels\TotalVoice;
 class TotalVoiceSmsMessage extends TotalVoiceMessage
 {
     /**
-     * @var null|bool
+     * @var bool
      */
-    public $multi_part = null;
+    public $multi_part = false;
 
     /**
      * @var null|\DateTime

@@ -10,14 +10,14 @@ trait TotalVoiceMessageOptions
     public $fake_number = null;
 
     /**
-     * @var null|bool
+     * @var bool
      */
-    public $record_audio = null;
+    public $record_audio = false;
 
     /**
-     * @var null|bool
+     * @var bool
      */
-    public $detect_callbox = null;
+    public $detect_callbox = false;
 
     /**
      * Define o número de telefone que aparecerá no identificador
@@ -25,7 +25,6 @@ trait TotalVoiceMessageOptions
      *
      * @param $fake_number
      * @return $this
-     * @internal param string $voice
      */
     public function fakeNumber($fake_number)
     {

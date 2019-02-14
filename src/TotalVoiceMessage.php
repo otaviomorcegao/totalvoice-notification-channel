@@ -14,9 +14,9 @@ abstract class TotalVoiceMessage
     /**
      * Aguardar uma resposta do destinatário.
      *
-     * @var null|bool
+     * @var bool
      */
-    public $provide_feedback = null;
+    public $provide_feedback = false;
 
     /**
      * Create a message object.
