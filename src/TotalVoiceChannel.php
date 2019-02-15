@@ -46,7 +46,7 @@ class TotalVoiceChannel
         try {
             $to = $this->getTo($notifiable);
 
-            if (! method_exists($this->notification, 'toTotalVoice')) {
+            if (! method_exists($notification, 'toTotalVoice')) {
                 throw CouldNotSendNotification::notificationMethodNotExists($notification);
             }
 
