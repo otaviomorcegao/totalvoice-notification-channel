@@ -43,5 +43,4 @@ class CouldNotSendNotification extends \Exception
         return new static(
             "Notification was not sent. Method toTotalVoice() not exists on `{$className} notification class`.");
     }
-    
 }
