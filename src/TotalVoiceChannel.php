@@ -50,7 +50,7 @@ class TotalVoiceChannel
                 throw CouldNotSendNotification::notificationMethodNotExists($notification);
             }
 
-            $message = $notification->toTotalVoice($notifiable);
+            $message = $notification->{'toTotalVoice'}($notifiable);
 
             if (is_string($message)) {
                 $message = new TotalVoiceSmsMessage($message);
