@@ -50,7 +50,7 @@ class TotalVoiceChannelTest extends MockeryTestCase
         $message = new TotalVoiceSmsMessage('Message text');
         $notification->shouldReceive('toTotalVoice')->andReturn($message);
         $this->totalvoice->shouldReceive('sendMessage')
-            ->with($message, '+1111111111', false);
+            ->with($message, '+1111111111');
         $this->channel->send($notifiable, $notification);
     }
 
@@ -62,7 +62,7 @@ class TotalVoiceChannelTest extends MockeryTestCase
         $message = new TotalVoiceAudioMessage('http://foooo.bar/audio.mp3');
         $notification->shouldReceive('toTotalVoice')->andReturn($message);
         $this->totalvoice->shouldReceive('sendMessage')
-            ->with($message, '+22222222222', false);
+            ->with($message, '+22222222222');
         $this->channel->send($notifiable, $notification);
     }
 
@@ -73,7 +73,7 @@ class TotalVoiceChannelTest extends MockeryTestCase
         $notification = Mockery::mock(Notification::class);
         $notification->shouldReceive('toTotalVoice')->andReturn('Message text');
         $this->totalvoice->shouldReceive('sendMessage')
-            ->with(Mockery::type(TotalVoiceSmsMessage::class), Mockery::any(), false);
+            ->with(Mockery::type(TotalVoiceSmsMessage::class), Mockery::any());
         $this->channel->send($notifiable, $notification);
     }
 

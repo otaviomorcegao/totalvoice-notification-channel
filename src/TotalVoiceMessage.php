@@ -55,12 +55,12 @@ abstract class TotalVoiceMessage
     /**
      * Set the provide feedback option.
      *
-     * @param bool $provide_feedback
+     * @param bool $provideFeedback
      * @return $this
      */
-    public function provideFeedback($provide_feedback)
+    public function provideFeedback($provideFeedback)
     {
-        $this->provide_feedback = $provide_feedback;
+        $this->provide_feedback = $provideFeedback;
 
         return $this;
     }

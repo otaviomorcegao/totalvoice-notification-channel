@@ -30,4 +30,18 @@ class CouldNotSendNotification extends \Exception
             'The notifiable did not have a receiving phone number. Add a routeNotificationForTotalVoice
             method or a phone_number attribute to your notifiable.');
     }
+
+    /**
+     * @param mixed $notification
+     *
+     * @return static
+     */
+    public static function notificationMethodNotExists($notification)
+    {
+        $className = get_class($notification) ?: 'Unknown';
+
+        return new static(
+            "Notification was not sent. Method toTotalVoice() not exists on `{$className} notification class`.");
+    }
+    
 }

@@ -45,6 +45,11 @@ class TotalVoiceChannel
     {
         try {
             $to = $this->getTo($notifiable);
+
+            if (! method_exists($this->notification, 'toTotalVoice')) {
+                throw CouldNotSendNotification::notificationMethodNotExists($notification);
+            }
+
             $message = $notification->toTotalVoice($notifiable);
 
             if (is_string($message)) {
@@ -60,8 +65,8 @@ class TotalVoiceChannel
             $event = new NotificationFailed($notifiable, $notification, 'totalvoice', ['message' => $exception->getMessage(), 'exception' => $exception]);
             if (function_exists('event')) {
                 event($event);
-            } elseif (method_exists($this->events, 'fire')) {
-                $this->events->fire($event);
+            } elseif (method_exists($this->events, 'dispacth')) {
+                $this->events->dispatch($event);
             }
         }
     }
